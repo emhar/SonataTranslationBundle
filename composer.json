@@ -1,0 +1,40 @@
+{
+  "name": "emhar/sonata-translation-bundle",
+  "description": "Add some translation functionality to sonata admin",
+  "keywords": [
+    "translation",
+    "sonata",
+    "admin",
+    "symfony"
+  ],
+  "homepage": "https://github.com/emhar/SonataTranslationBundle",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Emmanuel Harleaux",
+      "homepage": "https://github.com/emhar"
+    }
+  ],
+  "require": {
+    "sonata-project/doctrine-orm-admin-bundle": "^3.1",
+    "fervo/enum-bundle": "2.0.x-dev",
+    "jms/translation-bundle": "^1.3"
+  },
+  "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/emhar/EnumBundle.git"
+      }
+  ],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Emhar\\SonataTranslationBundle\\": ""
+    }
+  }
+}
