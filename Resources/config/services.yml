@@ -1,6 +1,6 @@
 services:
     emhar_translation.translation.extractor.sonata_admin_form_tab_group:
-        class: Emhar\TranslationBundle\Translation\Extractor\SonataAdminFormTabGroupExtractor
+        class: Emhar\SonataTranslationBundle\Translation\Extractor\SonataAdminFormTabGroupExtractor
         arguments:
             - '@sonata.admin.pool'
             - '@doctrine'
@@ -8,7 +8,7 @@ services:
         tags:
             - {name: jms_translation.extractor, alias: sonata_admin_form_tab_group}
     emhar_translation.translation.extractor.sonata_admin_exporter:
-        class: Emhar\TranslationBundle\Translation\Extractor\SonataAdminExporterExtractor
+        class: Emhar\SonataTranslationBundle\Translation\Extractor\SonataAdminExporterExtractor
         arguments:
             - '@sonata.admin.pool'
             - '@doctrine'
