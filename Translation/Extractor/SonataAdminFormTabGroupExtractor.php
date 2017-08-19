@@ -128,7 +128,11 @@ class SonataAdminFormTabGroupExtractor implements ExtractorInterface, Translator
                     $reflexionClass = new \ReflectionClass($instance);
                     $metadata = $this->doctrine->getManager()->getMetadataFactory()->getMetadataFor(get_class($instance));
                     foreach ($metadata->getIdentifier() as $identifierName) {
-                        $reflexionProperty = $reflexionClass->getProperty($identifierName);
+                        $currentReflexionClass = $reflexionClass;
+                        while (!$currentReflexionClass->hasProperty($identifierName)){
+                            $currentReflexionClass = $currentReflexionClass->getParentClass();
+                        }
+                        $reflexionProperty = $currentReflexionClass->getProperty($identifierName);
                         $reflexionProperty->setAccessible(true);
                         $reflexionProperty->setValue($instance, 1);
                     }
