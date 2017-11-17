@@ -28,8 +28,10 @@ class SonataExportCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $definition = $container->getDefinition('sonata.admin.manager.orm');
-        $definition->setClass(Manager::class);
-        $definition->addMethodCall('setTranslator', array(new Reference('translator')));
+        if($container->has('sonata.admin.manager.orm')) {
+            $definition = $container->getDefinition('sonata.admin.manager.orm');
+            $definition->setClass(Manager::class);
+            $definition->addMethodCall('setTranslator', array(new Reference('translator')));
+        }
     }
 }
